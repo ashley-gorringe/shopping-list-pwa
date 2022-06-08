@@ -6,6 +6,7 @@
 	padding: 14px 30px;
 	font-size: 18px;
 	line-height: 1em;
+	font-weight: normal;
 	border-radius: $border-radius;
 	text-align: center;
 
@@ -49,4 +50,11 @@
 	border: 2px solid darken($colour-borders, 5%);
 	border-radius: $border-radius;
 	padding: 10px;
+	outline: 2px solid transparent!important;
+	outline-offset: 1px!important;
+	transition-duration: 0.15s;
+	&:focus{
+		border-color: $colour-primary;
+		outline: 2px solid transparentize($colour-primary, 0.5)!important;
+	}
 }
