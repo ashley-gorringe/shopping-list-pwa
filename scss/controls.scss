@@ -50,7 +50,7 @@
 	border: 2px solid darken($colour-borders, 5%);
 	border-radius: $border-radius;
 	padding: 10px;
-	outline-color: transparentize($colour-primary, 0.5);
+	outline: none!important;
 	transition-duration: 0.15s;
 	&:focus{
 		border-color: $colour-primary;
