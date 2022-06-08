@@ -10,7 +10,7 @@
 		<link rel="manifest" href="/manifest.json">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta name="HandheldFriendly" content="true" />
-        <link rel="stylesheet" href="/css/base.min.css?v=3">
+        <link rel="stylesheet" href="/css/base.min.css?v=4">
         <title>Shopping List</title>
     </head>
     <body ontouchstart="">
@@ -24,10 +24,19 @@
 					</button>
 				</div>
 				<div class="slide-over__body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed pulvinar felis, aliquet egestas ante. Curabitur lobortis tincidunt odio at volutpat. Praesent egestas, nunc ac posuere ultricies, magna massa commodo purus, eu laoreet enim erat in quam. Donec varius interdum aliquam. Phasellus vehicula ultrices ipsum. Donec fringilla gravida odio, a rutrum turpis ullamcorper id. Proin quis lacus nec lacus imperdiet lobortis. Morbi neque nibh, scelerisque sed sapien vitae, volutpat rhoncus erat. Integer mollis purus quis leo lobortis, eleifend tincidunt risus eleifend. Donec porttitor id lorem vitae vulputate. Vivamus egestas eros ut urna dictum rutrum. Curabitur dapibus sollicitudin lacus vel sollicitudin. Mauris sit amet nunc placerat purus dapibus ornare. Donec viverra, magna nec maximus accumsan, est magna porttitor enim, vitae ultrices erat est et risus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed pulvinar felis, aliquet egestas ante. Curabitur lobortis tincidunt odio at volutpat. Praesent egestas, nunc ac posuere ultricies, magna massa commodo purus, eu laoreet enim erat in quam. Donec varius interdum aliquam. Phasellus vehicula ultrices ipsum. Donec fringilla gravida odio, a rutrum turpis ullamcorper id. Proin quis lacus nec lacus imperdiet lobortis. Morbi neque nibh, scelerisque sed sapien vitae, volutpat rhoncus erat. Integer mollis purus quis leo lobortis, eleifend tincidunt risus eleifend. Donec porttitor id lorem vitae vulputate. Vivamus egestas eros ut urna dictum rutrum. Curabitur dapibus sollicitudin lacus vel sollicitudin. Mauris sit amet nunc placerat purus dapibus ornare. Donec viverra, magna nec maximus accumsan, est magna porttitor enim, vitae ultrices erat est et risus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed pulvinar felis, aliquet egestas ante. Curabitur lobortis tincidunt odio at volutpat. Praesent egestas, nunc ac posuere ultricies, magna massa commodo purus, eu laoreet enim erat in quam. Donec varius interdum aliquam. Phasellus vehicula ultrices ipsum. Donec fringilla gravida odio, a rutrum turpis ullamcorper id. Proin quis lacus nec lacus imperdiet lobortis. Morbi neque nibh, scelerisque sed sapien vitae, volutpat rhoncus erat. Integer mollis purus quis leo lobortis, eleifend tincidunt risus eleifend. Donec porttitor id lorem vitae vulputate. Vivamus egestas eros ut urna dictum rutrum. Curabitur dapibus sollicitudin lacus vel sollicitudin. Mauris sit amet nunc placerat purus dapibus ornare. Donec viverra, magna nec maximus accumsan, est magna porttitor enim, vitae ultrices erat est et risus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed pulvinar felis, aliquet egestas ante. Curabitur lobortis tincidunt odio at volutpat. Praesent egestas, nunc ac posuere ultricies, magna massa commodo purus, eu laoreet enim erat in quam. Donec varius interdum aliquam. Phasellus vehicula ultrices ipsum. Donec fringilla gravida odio, a rutrum turpis ullamcorper id. Proin quis lacus nec lacus imperdiet lobortis. Morbi neque nibh, scelerisque sed sapien vitae, volutpat rhoncus erat. Integer mollis purus quis leo lobortis, eleifend tincidunt risus eleifend. Donec porttitor id lorem vitae vulputate. Vivamus egestas eros ut urna dictum rutrum. Curabitur dapibus sollicitudin lacus vel sollicitudin. Mauris sit amet nunc placerat purus dapibus ornare. Donec viverra, magna nec maximus accumsan, est magna porttitor enim, vitae ultrices erat est et risus.</p>
+					<form>
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" class="form-control" />
+							<span class="help">What is the item called?</span>
+						</div>
+						<div class="form-group">
+							<label>Description</label>
+							<textarea type="text" class="form-control" rows="5"></textarea>
+							<span class="help">What is the item called?</span>
+						</div>
+						<button class="button --primary --fw" type="submit">Add Item</button>
+					</form>
 				</div>
 			</div>
 			<nav class="main-nav">

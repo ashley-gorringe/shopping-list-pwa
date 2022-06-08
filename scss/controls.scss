@@ -1,0 +1,52 @@
+.button{
+	display: block;
+	position: relative;
+	border: 2px solid darken($colour-borders, 5%);
+	background-color: darken($colour-borders, 5%);
+	padding: 14px 30px;
+	font-size: 18px;
+	line-height: 1em;
+	border-radius: $border-radius;
+	text-align: center;
+
+	&.--fw{
+		width: 100%;
+	}
+
+	&.--primary{
+		border-color: $colour-primary;
+		background-color: $colour-primary;
+		color: white;
+	}
+}
+
+.form-group{
+	display: block;
+	position: relative;
+	margin-bottom: 20px;
+	label{
+		display: block;
+		position: relative;
+		padding: 0 10px;
+		margin-bottom: 5px;
+		font-size: 16px;
+		line-height: 1.1em;
+		font-weight: bold;
+	}
+	.help{
+		display: block;
+		position: relative;
+		padding: 0 10px;
+		font-size: 14px;
+		line-height: 1.1em;
+		margin-top: 5px;
+	}
+}
+.form-control{
+	display: block;
+	position: relative;
+	width: 100%;
+	border: 2px solid darken($colour-borders, 5%);
+	border-radius: $border-radius;
+	padding: 10px;
+}
