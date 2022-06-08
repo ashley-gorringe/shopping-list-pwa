@@ -1,0 +1,345 @@
+$colour-primary: #2D908F;
+$colour-dark: #333333;
+$colour-borders: #F5F5F5;
+
+$border-radius: 10px;
+
+$transition-duration: 0.15s;
+
+@import 'reboot';
+
+@import 'typography';
+@import 'controls';
+
+@import 'darkmode';
+body.theme--auto{
+	@media (prefers-color-scheme: dark) {
+		@include darkmode;
+	}
+}
+
+body.no-scroll{
+	overflow-y: hidden;
+	overscroll-behavior-y: none;
+}
+
+.main{
+	display: block;
+	position: relative;
+}
+
+.main-nav{
+	display: grid;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	grid-template-columns: auto 50px;
+	grid-column-gap: 10px;
+	padding: 15px;
+	background-color: rgba(255,255,255,0.8);
+	.add-item-button{
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 50px;
+		border-radius: $border-radius;
+		border: 2px solid lighten($colour-primary, 50%);
+		background-color: lighten($colour-primary, 50%);
+		color: $colour-primary;
+		font-size: 18px;
+		line-height: 1rem;
+		font-weight: 500;
+		text-align: left;
+		text-decoration: none;
+		outline: 2px solid transparent!important;
+		outline-offset: 2px!important;
+		transition-duration: $transition-duration;
+		padding-left: 48px;
+		&:active{
+			background-color: lighten($colour-primary, 40%);
+			border-color: lighten($colour-primary, 40%);
+		}
+		svg{
+			position: absolute;
+			top: calc(50% - 9px);
+			left: 20px;
+			height: 18px;
+			fill: $colour-primary;
+		}
+	}
+	.menu-button{
+		display: block;
+		position: relative;
+		width: 50px;
+		height: 50px;
+		border-radius: $border-radius;
+		border: 2px solid lighten($colour-dark, 70%);
+		background-color: lighten($colour-dark, 70%);
+		color: $colour-primary;
+		font-size: 18px;
+		line-height: 1rem;
+		font-weight: 500;
+		text-align: left;
+		text-decoration: none;
+		outline: 2px solid transparent!important;
+		outline-offset: 2px!important;
+		transition-duration: $transition-duration;
+		&:active{
+			background-color: lighten($colour-dark, 60%);
+			border-color: lighten($colour-dark, 60%);
+		}
+		svg{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 26px;
+			transform: translate(-50%,-50%);
+			fill: $colour-dark;
+		}
+	}
+}
+
+.overlay{
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.2);
+	z-index: 200;
+	opacity: 0;
+	pointer-events: none;
+	transition-duration: 0.3s;
+	&.active{
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.slide-over{
+	display: block;
+	position: fixed;
+	height: calc(100% - 30px);
+	width: 100%;
+	background: white;
+	bottom: 0;
+	left: 0;
+	z-index: 300;
+	border-top-left-radius: $border-radius + 10px;
+	border-top-right-radius: $border-radius + 10px;
+	overflow: hidden;
+	transform: translate(0px, 100%);
+	transition-duration: 0.3s;
+	transition-timing-function: ease-in-out;
+	&.active{
+		transform: translate(0, 0);
+	}
+}
+.slide-over__head{
+	display: grid;
+	position: relative;
+	width: 100%;
+	grid-template-columns: auto 50px;
+	align-items: center;
+	grid-column-gap: 20px;
+	border-bottom: 2px solid $colour-borders;
+	border-top-left-radius: $border-radius + 10px;
+	border-top-right-radius: $border-radius + 10px;
+	padding: 10px;
+	background-color: white;
+	z-index: 1;
+	span{
+		display: block;
+		position: relative;
+		font-size: 18px;
+		line-height: 1rem;
+		font-weight: bold;
+		padding-left: 20px;
+		min-width: 0;
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	button{
+		display: block;
+		position: relative;
+		width: 50px;
+		height: 50px;
+		border-radius: $border-radius + 10px;
+		border: 2px solid transparent;
+		background-color: transparent;
+		color: $colour-primary;
+		font-size: 18px;
+		line-height: 1rem;
+		font-weight: 500;
+		text-align: left;
+		text-decoration: none;
+		outline: 2px solid transparent!important;
+		outline-offset: 2px!important;
+		transition-duration: $transition-duration;
+		&:active{
+			background-color: lighten($colour-dark, 60%);
+			border-color: lighten($colour-dark, 60%);
+		}
+		svg{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 26px;
+			transform: translate(-50%,-50%);
+			fill: $colour-dark;
+		}
+	}
+}
+
+.slide-over__body{
+	display: block;
+	position: relative;
+	padding: 30px;
+	height: calc(100% - 72px);
+	overflow-y: scroll;
+}
+
+.list{
+	display: block;
+	position: relative;
+	margin-top: 100px;
+	padding: 0 15px;
+	padding-bottom: 50px;
+	.item{
+		display: grid;
+		position: relative;
+		grid-template-columns: 60px auto;
+		border-bottom: 2px solid transparentize($colour-dark, 0.9);
+		&:last-child{
+			border-bottom: 0;
+		}
+		.check{
+			display: block;
+			position: relative;
+			margin: 0;
+			padding: 0;
+			border: none;
+			background-color: transparent;
+			height: 60px;
+			width: 60px;
+			&::after{
+				content: '';
+				display: block;
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				background-color: transparent;
+				border-radius: $border-radius;
+				border: 2px solid transparentize($colour-dark, 0.7);
+				top: calc(50% - 15px);
+				left: calc(50% - 15px);
+				pointer-events: none;
+				transition-duration: 0.15s;
+			}
+			&::before{
+				content: '';
+				z-index: 1;
+				display: block;
+				position: absolute;
+				width: 14px;
+				height: 14px;
+				top: calc(50% - 7px);
+				left: calc(50% - 7px);
+				background-image: url(/assets/check.svg);
+				background-position: center;
+				background-repeat: no-repeat;
+				pointer-events: none;
+				transform: scale(2);
+				transition-duration: 0.4s;
+				transition-timing-function: ease-in-out;
+				opacity: 0;
+			}
+
+			&:focus::after{
+				border-color: transparentize($colour-dark, 0.3);
+			}
+		}
+		.content{
+			display: grid;
+			position: relative;
+			grid-template-columns: auto;
+			align-items: center;
+			justify-items: start;
+			grid-row-gap: 2px;
+			padding: 12px 0;
+			margin: 0;
+			border: none;
+			background: transparent;
+			text-align:left;
+			width: 100%;
+			min-width: 0;
+			padding-right: 15px;
+			.item-name{
+				display: inline-block;
+				position: relative;
+				font-size: 18px;
+				line-height: 1.3rem;
+				min-width: 0;
+				max-width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				color: $colour-dark;
+				transition-duration: 0.3s;
+				transition-timing-function: ease-in-out;
+				&::after{
+					content: '';
+					display: block;
+					position: absolute;
+					width: calc(100% + 10px);
+					height: 2px;
+					background: $colour-dark;
+					top: calc(50% - 1px);
+					left: 0;
+					opacity: 0.6;
+					transform: scale(0,1);
+					transform-origin: left;
+					transition-duration: 0.4s;
+					transition-timing-function: ease-in-out;
+				}
+			}
+			.item-description{
+				display: inline-block;
+				position: relative;
+				font-size: 14px;
+				line-height: 1rem;
+				min-width: 0;
+				max-width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				color: $colour-dark;
+			}
+		}
+
+		&.checked{
+			.check{
+				&::after{
+					background-color: $colour-primary;
+				}
+				&::before{
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+			.content{
+				.item-name{
+					color: transparentize($colour-dark, 0.4);
+					&::after{
+						transform: scale(1,1);
+					}
+				}
+			}
+		}
+	}
+}

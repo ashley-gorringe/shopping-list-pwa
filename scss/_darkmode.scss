@@ -1,0 +1,77 @@
+@mixin darkmode{
+	$colour-borders: #3C3C3C;
+	background-color: $colour-dark;
+
+	.main-nav{
+		background-color: rgba(51,51,51,0.9);
+		.add-item-button{
+			border: 2px solid darken($colour-primary, 10%);
+			background-color: darken($colour-primary, 10%);
+			color: white;
+			svg{
+				fill:white;
+			}
+		}
+		.menu-button{
+			border: 2px solid lighten($colour-dark, 10%);
+			background-color: lighten($colour-dark, 10%);
+			svg{
+				fill:white;
+			}
+		}
+	}
+
+	.list{
+		.item{
+			border-color: transparentize(white, 0.9);
+			.check{
+				&::after{
+					border: 2px solid transparentize(white, 0.7);
+				}
+				&:focus::after{
+					border-color: transparentize(white, 0.3);
+				}
+			}
+			.content{
+				.item-name{
+					color: white;
+					&::after{
+						background-color: white;
+						opacity: 1;
+					}
+				}
+				.item-description{
+					color: white;
+				}
+			}
+			&.checked{
+				.content{
+					.item-name{
+						color: transparentize(white, 0.4);
+					}
+				}
+			}
+		}
+	}
+
+	.overlay{
+		background-color: rgba(0,0,0,0.4);
+	}
+
+	.slide-over{
+		background: $colour-dark;
+	}
+	.slide-over__head{
+		background: $colour-dark;
+		border-color: $colour-borders;
+		span{
+			color: white;
+		}
+		svg{
+			fill:white;
+		}
+	}
+	.slide-over__body{
+		color: white;
+	}
+}
