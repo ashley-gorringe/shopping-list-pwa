@@ -51,6 +51,7 @@
 	border-radius: $border-radius;
 	padding: 10px;
 	outline: none!important;
+	outline-width: 0!important;
 	transition-duration: 0.15s;
 	&:focus{
 		border-color: $colour-primary;
