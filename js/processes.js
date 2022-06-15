@@ -1,4 +1,4 @@
-var apiUrl = 'http://shoppinglistapi:8888';
+var apiUrl = 'https://shoppinglist-api.splycd.co.uk';
 
 function process_createList(){
 	$.ajax({
