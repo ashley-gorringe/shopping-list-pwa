@@ -10,7 +10,7 @@
 		<link rel="manifest" href="/manifest.json">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta name="HandheldFriendly" content="true" />
-        <link rel="stylesheet" href="/css/base.min.css?v=9">
+        <link rel="stylesheet" href="/css/base.min.css?v=11">
         <title>Shopping List</title>
     </head>
     <body ontouchstart="">
@@ -18,28 +18,42 @@
 			<div class="overlay"></div>
 			<div class="slide-over">
 				<div class="slide-over__head">
-					<span>New Item</span>
+					<span id="slide-over-title">-</span>
 					<button id="close-slide-button">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
 					</button>
 				</div>
-				<div class="slide-over__body">
+				<div class="slide-over__body" id="slide-body-welcome">
+					<h1>Welcome!</h1>
+					<p>Create a new list or join an existing one below.</p>
+					<button id="create-list-button" type="button" class="button --primary --fw">Create a List</button>
+					<div class="spacer"></div>
 					<form>
 						<div class="form-group">
-							<label>Name</label>
+							<label>List Code</label>
 							<input type="text" class="form-control" />
+							<span class="help">Ask a member of the list to share the List Code with you.</span>
+						</div>
+						<button class="button --fw" type="submit">Join List</button>
+					</form>
+				</div>
+				<div class="slide-over__body" id="slide-body-addItem">
+					<form id="form-item-edit">
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" name="name" class="form-control" required autocomplete="off" />
 							<span class="help">What is the item called?</span>
 						</div>
 						<div class="form-group">
 							<label>Description</label>
-							<textarea type="text" class="form-control" rows="5"></textarea>
-							<span class="help">What is the item called?</span>
+							<textarea type="text" name="description" class="form-control" rows="5" autocomplete="off"></textarea>
+							<span class="help">Describe something more specific.</span>
 						</div>
 						<button class="button --primary --fw" type="submit">Add Item</button>
 					</form>
 				</div>
 			</div>
-			<nav class="main-nav">
+			<nav class="main-nav active">
 				<button class="add-item-button" id="add-item-button">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z"/></svg>
 					Add Item
@@ -48,100 +62,36 @@
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z"/></svg>
 				</button>
 			</nav>
+			<!--<span id="last-updated">Last updated: 5 seconds ago</span>-->
 			<div class="list">
+			</div>
+			<div class="list-skeleton">
 				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Bread</span>
-						<span class="item-description">Kingsmill wholemeal medium</span>
-					</button>
+					<div class="check"></div>
+					<div class="content"></div>
 				</div>
 				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Chocolate</span>
-					</button>
+					<div class="check"></div>
+					<div class="content"></div>
 				</div>
 				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Washing tablets</span>
-					</button>
+					<div class="check"></div>
+					<div class="content"></div>
 				</div>
 				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Fabric conditioner</span>
-					</button>
+					<div class="check"></div>
+					<div class="content"></div>
 				</div>
 				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Bread</span>
-						<span class="item-description">Kingsmill wholemeal medium</span>
-					</button>
+					<div class="check"></div>
+					<div class="content"></div>
 				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Chocolate</span>
-					</button>
-				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Washing tablets</span>
-					</button>
-				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Fabric conditioner</span>
-					</button>
-				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Bread</span>
-						<span class="item-description">Kingsmill wholemeal medium</span>
-					</button>
-				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Chocolate</span>
-					</button>
-				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Washing tablets</span>
-					</button>
-				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Fabric conditioner</span>
-					</button>
-				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Cheese</span>
-						<span class="item-description">Slices</span>
-					</button>
-				</div>
-				<div class="item">
-					<button class="check"></button>
-					<button class="content">
-						<span class="item-name">Milk</span>
-					</button>
-				</div>
-
 			</div>
 		</div>
 
         <script src="/js/jquery.min.js"></script>
-        <script src="/js/scripts.js"></script>
+        <script src="/js/processes.js?v=11"></script>
+        <script src="/js/scripts.js?v=11"></script>
+        <script src="/js/interactions.js?v=11"></script>
     </body>
 </html>
