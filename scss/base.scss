@@ -221,6 +221,46 @@ body.no-scroll{
 	overflow-y: scroll;
 }
 
+.list-code__box{
+	display: none;
+	position: relative;
+	padding: 20px;
+	border-radius: $border-radius;
+	border: 2px solid darken($colour-borders,10%);
+	.heading{
+		display: block;
+		position: relative;
+		text-align: center;
+		margin-bottom: 10px;
+		font-size: 18px;
+		line-height: 1em;
+	}
+	.list-code{
+		display: flex;
+		position: relative;
+		justify-content: center;
+		column-gap: 25px;
+		span{
+			font-family: 'JetBrains Mono', monospace;
+			display: inline-block;
+			font-size: 30px;
+			line-height: 1em;
+			color: $colour-primary;
+		}
+		&::after{
+			content: '';
+			display: block;
+			position: absolute;
+			width: 5px;
+			height: 5px;
+			border-radius: 5px;
+			background-color: darken($colour-borders,20%);
+			top: calc(50% - 2.5px);
+			left: calc(50% - 2.5px);
+		}
+	}
+}
+
 .list{
 	display: none;
 	position: relative;

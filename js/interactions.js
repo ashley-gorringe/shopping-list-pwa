@@ -10,6 +10,19 @@ $("#create-list-button").click(function(event){
 	process_createList();
 });
 
+//Join list with code
+$('#form-join').submit(function(event){
+	event.preventDefault();
+	var formData = $(this).serialize();
+	process_joinList(formData);
+});
+
+//Share List Button
+$("#share-button").click(function(event){
+	event.preventDefault();
+	process_shareList();
+});
+
 //Add Item Button
 $("#add-item-button").click(function(event){
 	event.preventDefault();
@@ -39,4 +52,16 @@ $('#form-item-edit').submit(function(event){
 	event.preventDefault();
 	var formData = $(this).serialize();
 	process_createItem(formData);
+});
+
+//Debug refresh
+$("#refresh-button").click(function(event){
+	event.preventDefault();
+	location.reload();
+});
+//Debug destroy
+$("#destroy-button").click(function(event){
+	event.preventDefault();
+	localStorage.removeItem('token');
+	location.reload();
 });

@@ -1,4 +1,5 @@
-var apiUrl = 'https://shoppinglist-api.splycd.co.uk';
+//var apiUrl = 'https://shoppinglist-api.splycd.co.uk';
+var apiUrl = 'http://shoppinglistapi:8888';
 
 function process_createList(){
 	$.ajax({
@@ -17,8 +18,26 @@ function process_createList(){
     });
 }
 
+function process_joinList(formData){
+	$.ajax({
+        type: "GET",
+        url: apiUrl+'/list/join?'+formData,
+        dataType: 'json',
+        success: function(response){
+            console.log(response);
+            if(response.status == 'error'){
+				console.error(response.message);
+            }else if(response.status == 'success'){
+				console.log(response.token);
+				localStorage.setItem('token', response.token);
+				location.reload();
+            }
+        }
+    });
+}
+
 function process_refreshList(){
-	console.log('Start List Refresh');
+	//console.log('Start List Refresh');
 	let token = localStorage.getItem('token');
 	$.ajax({
         type: "GET",
@@ -59,7 +78,30 @@ function process_refreshList(){
 				$('.list').html(itemsMarkup);
 				$('.list').show();
 				$('.list-skeleton').hide();
-				console.log('End List Refresh');
+				//console.log('End List Refresh');
+            }
+        }
+    });
+}
+
+function process_shareList(){
+	let token = localStorage.getItem('token');
+	$.ajax({
+        type: "GET",
+        url: apiUrl+'/list/share?token='+token,
+        dataType: 'json',
+        success: function(response){
+            if(response.status == 'error'){
+				console.error(response.message);
+            }else if(response.status == 'success'){
+				var code1 = response.code1;
+				var code2 = response.code2;
+
+				$('#list-code-1').html(code1);
+				$('#list-code-2').html(code2);
+				$('.list-code__box').show();
+				$('#share-button').hide();
+				//console.log('End List Refresh');
             }
         }
     });

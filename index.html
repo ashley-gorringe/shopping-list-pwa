@@ -6,12 +6,13 @@
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
 		<link rel="manifest" href="/manifest.json">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta name="HandheldFriendly" content="true" />
-        <link rel="stylesheet" href="/css/base.min.css?v=12">
+        <link rel="stylesheet" href="/css/base.min.css?v=13">
         <title>Shopping List</title>
+		<link rel="icon" type="image/png" href="/assets/favicon.png">
 
 		<link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/assets/splash/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_landscape.png">
 		<link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/assets/splash/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png">
@@ -60,14 +61,27 @@
 					<p>Create a new list or join an existing one below.</p>
 					<button id="create-list-button" type="button" class="button --primary --fw">Create a List</button>
 					<div class="spacer"></div>
-					<form>
+					<form id="form-join">
 						<div class="form-group">
 							<label>List Code</label>
-							<input type="text" class="form-control" />
+							<input name="code" type="text" class="form-control" />
 							<span class="help">Ask a member of the list to share the List Code with you.</span>
 						</div>
 						<button class="button --fw" type="submit">Join List</button>
 					</form>
+				</div>
+				<div class="slide-over__body" id="slide-body-menu">
+					<button id="share-button" type="button" class="button --primary --fw">Get List Code</button>
+					<div class="list-code__box">
+						<span class="heading">List Code</span>
+						<div class="list-code">
+							<span id="list-code-1">-</span>
+							<span id="list-code-2">-</span>
+						</div>
+					</div>
+					<div class="spacer"></div>
+					<button id="refresh-button" type="button" class="button --fw">Refresh Session</button>
+					<button id="destroy-button" type="button" class="button --fw">Destroy Session</button>
 				</div>
 				<div class="slide-over__body" id="slide-body-addItem">
 					<form id="form-item-edit">
@@ -122,8 +136,8 @@
 		</div>
 
         <script src="/js/jquery.min.js"></script>
-        <script src="/js/processes.js?v=12"></script>
-        <script src="/js/scripts.js?v=12"></script>
-        <script src="/js/interactions.js?v=12"></script>
+        <script src="/js/processes.js?v=13"></script>
+        <script src="/js/scripts.js?v=13"></script>
+        <script src="/js/interactions.js?v=13"></script>
     </body>
 </html>
