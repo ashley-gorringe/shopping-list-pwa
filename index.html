@@ -10,7 +10,7 @@
 		<link rel="manifest" href="/manifest.json">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta name="HandheldFriendly" content="true" />
-        <link rel="stylesheet" href="/css/base.min.css?v=15">
+        <link rel="stylesheet" href="/css/base.min.css?v=16">
         <title>Shopping List</title>
 		<link rel="icon" type="image/png" href="/assets/favicon.png">
 
@@ -64,7 +64,7 @@
 					<form id="form-join">
 						<div class="form-group">
 							<label>List Code</label>
-							<input name="code" type="text" class="form-control" />
+							<input name="code" type="text" class="form-control" required/>
 							<span class="help">Ask a member of the list to share the List Code with you.</span>
 						</div>
 						<button class="button --fw" type="submit">Join List</button>
@@ -81,10 +81,10 @@
 					</div>
 					<div class="spacer"></div>
 					<button id="refresh-button" type="button" class="button --fw">Refresh Session</button>
-					<button id="destroy-button" type="button" class="button --fw">Destroy Session</button>
+					<button id="destroy-button" type="button" class="button --danger --fw">Destroy Session</button>
 				</div>
 				<div class="slide-over__body" id="slide-body-addItem">
-					<form id="form-item-edit">
+					<form id="form-item-new">
 						<div class="form-group">
 							<label>Name</label>
 							<input type="text" name="name" class="form-control" required autocomplete="off" />
@@ -96,6 +96,32 @@
 							<span class="help">Describe something more specific.</span>
 						</div>
 						<button class="button --primary --fw" type="submit">Add Item</button>
+					</form>
+				</div>
+				<div class="slide-over__body" id="slide-body-editItem">
+					<div id="form-item-edit-skeleton">
+						<div class="group">
+							<div class="label"></div>
+							<div class="field"></div>
+						</div>
+						<div class="group">
+							<div class="label"></div>
+							<div class="field --box"></div>
+						</div>
+					</div>
+					<form id="form-item-edit">
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" name="name" class="form-control" required autocomplete="off" />
+							<span class="help">What is the item called?</span>
+						</div>
+						<div class="form-group">
+							<label>Description</label>
+							<textarea type="text" name="description" class="form-control" rows="5" autocomplete="off"></textarea>
+							<span class="help">Describe something more specific.</span>
+						</div>
+						<button class="button --primary --fw" type="submit">Edit Item</button>
+						<button class="button --danger --fw" type="button">Delete</button>
 					</form>
 				</div>
 			</div>
@@ -136,8 +162,8 @@
 		</div>
 
         <script src="/js/jquery.min.js"></script>
-        <script src="/js/processes.js?v=15"></script>
-        <script src="/js/scripts.js?v=15"></script>
-        <script src="/js/interactions.js?v=15"></script>
+        <script src="/js/processes.js?v=16"></script>
+        <script src="/js/scripts.js?v=16"></script>
+        <script src="/js/interactions.js?v=16"></script>
     </body>
 </html>

@@ -16,6 +16,10 @@ function slideOverOpen(type){
 		$('#slide-body-addItem').show();
 		$('#slide-over-title').html('Add Item');
 		break;
+		case 'editItem':
+		$('#slide-body-editItem').show();
+		$('#slide-over-title').html('Edit Item');
+		break;
 	}
 
 	$('body').addClass('no-scroll');

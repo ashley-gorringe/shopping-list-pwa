@@ -47,8 +47,15 @@ $(document).on('click', '.item .check',function(event){
 	}
 });
 
+//Open a List Item
+$(document).on('click', '.item .content',function(event){
+	event.preventDefault();
+	var item_id = $(this).parent().attr('data-id');
+	slideOverOpen('editItem');
+});
+
 //Submit new item
-$('#form-item-edit').submit(function(event){
+$('#form-item-new').submit(function(event){
 	event.preventDefault();
 	var formData = $(this).serialize();
 	process_createItem(formData);

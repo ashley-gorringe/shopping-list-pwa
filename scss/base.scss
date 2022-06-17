@@ -2,6 +2,8 @@ $colour-primary: #2D908F;
 $colour-dark: #333333;
 $colour-borders: #F5F5F5;
 
+$colour-danger: #D40A0A;
+
 $border-radius: 10px;
 
 $transition-duration: 0.15s;
@@ -446,6 +448,35 @@ body.no-scroll{
 		}
 		&:nth-child(5n+5) .content{
 			width: 75%;
+		}
+	}
+}
+#form-item-edit{
+	display: none;
+}
+#form-item-edit-skeleton{
+	display: block;
+	position: relative;
+	.group{
+		display: block;
+		position: relative;
+		margin-bottom: 20px;
+	}
+	.label{
+		display: inline-block;
+		height: 18px;
+		width: 30%;
+		background-color: transparentize($colour-dark, 0.9);
+		border-radius: $border-radius;
+	}
+	.field{
+		display: block;
+		height: 48px;
+		width: 100%;
+		background-color: transparentize($colour-dark, 0.9);
+		border-radius: $border-radius;
+		&.--box{
+			height: 144px;
 		}
 	}
 }

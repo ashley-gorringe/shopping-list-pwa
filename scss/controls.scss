@@ -30,6 +30,17 @@
 		}
 	}
 
+	&.--danger{
+		border-color: lighten($colour-danger,53%);
+		background-color: lighten($colour-danger,53%);
+		color: $colour-danger;
+		&:active{
+			background-color: $colour-danger;
+			border-color: darken($colour-danger, 5%);
+			color: white;
+		}
+	}
+
 	&+.button{
 		margin-top: 10px;
 	}
