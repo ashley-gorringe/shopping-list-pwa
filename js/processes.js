@@ -75,9 +75,15 @@ function process_refreshList(){
 					`;
 				});
 
-				$('.list').html(itemsMarkup);
-				$('.list').show();
-				$('.list-skeleton').hide();
+				if(items.length < 1){
+					$('.list').hide();
+					$('.list-skeleton').show();
+					$('.list-skeleton').addClass('--no-items');
+				}else{
+					$('.list').html(itemsMarkup);
+					$('.list').show();
+					$('.list-skeleton').hide();
+				}
 				//console.log('End List Refresh');
             }
         }
@@ -140,6 +146,8 @@ function process_createItem(formData){
 					`);
 				slideOverClose();
 				$('#form-item-new').trigger("reset");
+				$('.list').show();
+				$('.list-skeleton').hide();
             }
         }
     });
@@ -198,9 +206,9 @@ function process_deleteItem(item_id){
             if(response.status == 'error'){
 				console.error(response.message);
             }else if(response.status == 'success'){
-				$('.list .item[data-id="'+item_id+'"]').remove();
 				slideOverClose();
 				$('#form-item-edit').trigger("reset");
+				process_refreshList();
 			}
         }
     });
