@@ -51,7 +51,10 @@ $(document).on('click', '.item .check',function(event){
 $(document).on('click', '.item .content',function(event){
 	event.preventDefault();
 	var item_id = $(this).parent().attr('data-id');
+	$('#form-item-edit-skeleton').show();
+	$('#form-item-edit').hide();
 	slideOverOpen('editItem');
+	process_getEditItem(item_id);
 });
 
 //Submit new item
@@ -59,6 +62,19 @@ $('#form-item-new').submit(function(event){
 	event.preventDefault();
 	var formData = $(this).serialize();
 	process_createItem(formData);
+});
+
+//Submit edit item
+$('#form-item-edit').submit(function(event){
+	event.preventDefault();
+	var formData = $(this).serialize();
+	process_editItem(formData);
+});
+
+//Delete a List Item
+$("#form-item-edit-delete").click(function(event){
+	var item_id = $(this).attr('data-id');
+	process_deleteItem(item_id);
 });
 
 //Debug refresh

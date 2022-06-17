@@ -139,8 +139,69 @@ function process_createItem(formData){
 					</div>
 					`);
 				slideOverClose();
-				$('#form-item-edit').trigger("reset");
+				$('#form-item-new').trigger("reset");
             }
+        }
+    });
+}
+
+function process_getEditItem(item_id){
+	let token = localStorage.getItem('token');
+	$.ajax({
+        type: "GET",
+        url: apiUrl+'/item/getEdit?token='+token+'&item='+item_id,
+        dataType: 'json',
+        success: function(response){
+			console.log(response);
+            if(response.status == 'error'){
+				console.error(response.message);
+            }else if(response.status == 'success'){
+				$('#form-item-edit').trigger("reset");
+				$('#form-item-edit-id').val(response.item_id);
+				$('#form-item-edit-name').val(response.name);
+				$('#form-item-edit-description').html(response.description);
+				$('#form-item-edit-delete').attr('data-id',response.item_id);
+				$('#form-item-edit-skeleton').hide();
+				$('#form-item-edit').show();
+			}
+        }
+    });
+}
+
+function process_editItem(formData){
+	let token = localStorage.getItem('token');
+	$.ajax({
+        type: "GET",
+        url: apiUrl+'/item/edit?token='+token+'&'+formData,
+        dataType: 'json',
+        success: function(response){
+			console.log(response);
+            if(response.status == 'error'){
+				console.error(response.message);
+            }else if(response.status == 'success'){
+				slideOverClose();
+				$('#form-item-edit').trigger("reset");
+				process_refreshList();
+			}
+        }
+    });
+}
+
+function process_deleteItem(item_id){
+	let token = localStorage.getItem('token');
+	$.ajax({
+        type: "GET",
+        url: apiUrl+'/item/delete?token='+token+'&item='+item_id,
+        dataType: 'json',
+        success: function(response){
+			console.log(response);
+            if(response.status == 'error'){
+				console.error(response.message);
+            }else if(response.status == 'success'){
+				$('.list .item[data-id="'+item_id+'"]').remove();
+				slideOverClose();
+				$('#form-item-edit').trigger("reset");
+			}
         }
     });
 }
