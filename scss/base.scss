@@ -37,7 +37,7 @@ body.no-scroll{
 	left: 0;
 	width: 100%;
 	z-index: 100;
-	grid-template-columns: auto 50px;
+	grid-template-columns: auto 50px 50px;
 	grid-column-gap: 10px;
 	padding: 15px;
 	background-color: rgba(255,255,255,0.8);
@@ -72,6 +72,36 @@ body.no-scroll{
 			left: 20px;
 			height: 18px;
 			fill: $colour-primary;
+		}
+	}
+	.refresh-button{
+		display: block;
+		position: relative;
+		width: 50px;
+		height: 50px;
+		border-radius: $border-radius;
+		border: 2px solid lighten($colour-dark, 70%);
+		background-color: lighten($colour-dark, 70%);
+		color: $colour-primary;
+		font-size: 18px;
+		line-height: 1rem;
+		font-weight: 500;
+		text-align: left;
+		text-decoration: none;
+		outline: 2px solid transparent!important;
+		outline-offset: 2px!important;
+		transition-duration: $transition-duration;
+		&:active{
+			background-color: lighten($colour-dark, 60%);
+			border-color: lighten($colour-dark, 60%);
+		}
+		svg{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 20px;
+			transform: translate(-50%,-50%);
+			fill: $colour-dark;
 		}
 	}
 	.menu-button{
