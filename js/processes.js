@@ -46,7 +46,11 @@ function process_refreshList(){
         success: function(response){
             if(response.status == 'error'){
 				console.error(response.message);
-            }else if(response.status == 'success'){
+            }else if(response.status == 'invalid'){
+				console.error(response.message);
+				localStorage.removeItem('token');
+				location.reload();
+			}else if(response.status == 'success'){
 				var itemsMarkup = '';
 
 				//console.log(response.items);
