@@ -275,28 +275,13 @@ body.no-scroll{
 		line-height: 1em;
 	}
 	.list-code{
-		display: flex;
-		position: relative;
-		justify-content: center;
-		column-gap: 25px;
-		span{
-			font-family: 'JetBrains Mono', monospace;
-			display: inline-block;
-			font-size: 30px;
-			line-height: 1em;
-			color: $colour-primary;
-		}
-		&::after{
-			content: '';
-			display: block;
-			position: absolute;
-			width: 5px;
-			height: 5px;
-			border-radius: 5px;
-			background-color: darken($colour-borders,20%);
-			top: calc(50% - 2.5px);
-			left: calc(50% - 2.5px);
-		}
+		font-family: 'JetBrains Mono', monospace;
+		display: block;
+		font-size: 30px;
+		line-height: 1em;
+		color: $colour-primary;
+		text-align: center;
+		letter-spacing: 0.2em;
 	}
 }
 
@@ -531,4 +516,11 @@ body.no-scroll{
 			height: 144px;
 		}
 	}
+}
+
+#slide-body-menu #destroy-button{
+	position: absolute;
+	bottom: 30px;
+	left: 30px;
+	width: calc(100% - 60px);
 }

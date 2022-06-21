@@ -97,11 +97,9 @@ function process_shareList(){
             if(response.status == 'error'){
 				console.error(response.message);
             }else if(response.status == 'success'){
-				var code1 = response.code1;
-				var code2 = response.code2;
+				var code = response.code;
 
-				$('#list-code-1').html(code1);
-				$('#list-code-2').html(code2);
+				$('#list-code').html(code);
 				$('.list-code__box').show();
 				$('#share-button').hide();
 				//console.log('End List Refresh');

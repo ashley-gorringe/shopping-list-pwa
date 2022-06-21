@@ -10,7 +10,7 @@
 		<link rel="manifest" href="/manifest.json?v=20">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta name="HandheldFriendly" content="true" />
-        <link rel="stylesheet" href="/css/base.min.css?v=21">
+        <link rel="stylesheet" href="/css/base.min.css?v=22">
         <title>Shopping List</title>
 		<link rel="icon" type="image/png" href="/assets/favicon.png">
 
@@ -64,7 +64,7 @@
 					<form id="form-join">
 						<div class="form-group">
 							<label>List Code</label>
-							<input name="code" type="text" class="form-control" required/>
+							<input name="code" type="text" class="form-control" style="text-transform: uppercase;" maxlength="6" required/>
 							<span class="help">Ask a member of the list to share the List Code with you.</span>
 						</div>
 						<button class="button --fw" type="submit">Join List</button>
@@ -74,13 +74,10 @@
 					<button id="share-button" type="button" class="button --primary --fw">Get List Code</button>
 					<div class="list-code__box">
 						<span class="heading">List Code</span>
-						<div class="list-code">
-							<span id="list-code-1">-</span>
-							<span id="list-code-2">-</span>
+						<div class="list-code" id="list-code">
 						</div>
 					</div>
-					<div class="spacer"></div>
-					<button id="destroy-button" type="button" class="button --danger --fw">Destroy Session</button>
+					<button id="destroy-button" type="button" class="button --danger --fw">Leave List</button>
 				</div>
 				<div class="slide-over__body" id="slide-body-addItem">
 					<form id="form-item-new">
@@ -168,8 +165,8 @@
 		</div>
 
         <script src="/js/jquery.min.js"></script>
-        <script src="/js/processes.js?v=21"></script>
-        <script src="/js/scripts.js?v=21"></script>
-        <script src="/js/interactions.js?v=21"></script>
+        <script src="/js/processes.js?v=22"></script>
+        <script src="/js/scripts.js?v=22"></script>
+        <script src="/js/interactions.js?v=22"></script>
     </body>
 </html>
