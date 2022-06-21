@@ -80,6 +80,9 @@ $("#form-item-edit-delete").click(function(event){
 //Debug refresh
 $("#refresh-button").click(function(event){
 	event.preventDefault();
+	$('.notice').hide();
+	$('.list').hide();
+	$('.list-skeleton').show();
 	location.reload();
 });
 //Debug destroy

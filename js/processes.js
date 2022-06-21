@@ -76,14 +76,11 @@ function process_refreshList(){
 				});
 
 				if(items.length < 1){
-					$('.list').hide();
-					$('.list-skeleton').show();
-					$('.list-skeleton').addClass('--no-items');
-				}else{
-					$('.list').html(itemsMarkup);
-					$('.list').show();
-					$('.list-skeleton').hide();
+					$('.notice').show();
 				}
+				$('.list').html(itemsMarkup);
+				$('.list').show();
+				$('.list-skeleton').hide();
 				//console.log('End List Refresh');
             }
         }
@@ -135,6 +132,7 @@ function process_createItem(formData){
 				}else{
 					var description = '';
 				}
+				$('.notice').hide();
 				$('.list').prepend(`
 					<div class="item`+checked+`" data-id="`+item['id']+`">
 						<button class="check"></button>

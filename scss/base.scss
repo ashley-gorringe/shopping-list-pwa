@@ -37,7 +37,7 @@ body.no-scroll{
 	left: 0;
 	width: 100%;
 	z-index: 100;
-	grid-template-columns: auto 50px 50px;
+	grid-template-columns: auto 50px;
 	grid-column-gap: 10px;
 	padding: 15px;
 	background-color: rgba(255,255,255,0.8);
@@ -75,7 +75,7 @@ body.no-scroll{
 		}
 	}
 	.refresh-button{
-		display: block;
+		display: none;
 		position: relative;
 		width: 50px;
 		height: 50px;
@@ -133,6 +133,13 @@ body.no-scroll{
 			transform: translate(-50%,-50%);
 			fill: $colour-dark;
 		}
+	}
+	&.pwa{
+		grid-template-columns: auto 50px 50px;
+		.refresh-button{
+			display: block;
+		}
+
 	}
 }
 
@@ -433,6 +440,21 @@ body.no-scroll{
 	}
 }
 
+.notice{
+	display: none;
+	position: absolute;
+	left: 15px;
+	width: calc(100% - 30px);
+	padding: 20px;
+	border-radius: $border-radius;
+	border: 2px solid $colour-borders;
+	background-color: $colour-borders;
+	text-align:center;
+	font-size: 18px;
+	line-height: 1.4em;
+
+}
+
 .list-skeleton{
 	display: block;
 	position: relative;
@@ -478,31 +500,6 @@ body.no-scroll{
 		}
 		&:nth-child(5n+5) .content{
 			width: 75%;
-		}
-	}
-	.notice{
-		display: block;
-		position: absolute;
-		top: 50%;
-		left: 0;
-		transform: translate(0,calc(-50% - 25px));
-		background: rgb(255,255,255);
-		background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 20%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0) 100%);
-		padding: 50px 60px;
-		z-index: 1;
-		opacity: 0;
-		transition: opacity 1s 2s;
-		span{
-			display: block;
-			position: relative;
-			text-align: center;
-			font-size: 18px;
-			line-height: 1.4em;
-		}
-	}
-	&.--no-items{
-		.notice{
-			opacity: 1;
 		}
 	}
 }
