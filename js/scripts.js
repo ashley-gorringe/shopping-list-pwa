@@ -10,7 +10,7 @@ function slideOverOpen(type){
 		break;
 		case 'menu':
 		$('#slide-body-menu').show();
-		$('#slide-over-title').html('Menu');
+		$('#slide-over-title').html('List');
 		break;
 		case 'addItem':
 		$('#slide-body-addItem').show();

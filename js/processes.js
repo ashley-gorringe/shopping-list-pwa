@@ -1,5 +1,5 @@
-var apiUrl = 'https://shoppinglist-api.splycd.co.uk';
-//var apiUrl = 'http://shoppinglistapi:8888';
+//var apiUrl = 'https://shoppinglist-api.splycd.co.uk';
+var apiUrl = 'http://shoppinglistapi:8888';
 
 function process_createList(){
 	$.ajax({
@@ -237,6 +237,24 @@ function process_unCheckItem(item_id){
             if(response.status == 'error'){
 				console.error(response.message);
             }
+        }
+    });
+}
+
+function process_cleanList(){
+	let token = localStorage.getItem('token');
+	$.ajax({
+        type: "GET",
+        url: apiUrl+'/list/clean?token='+token,
+        dataType: 'json',
+        success: function(response){
+			console.log(response);
+            if(response.status == 'error'){
+				console.error(response.message);
+            }else if(response.status == 'success'){
+				slideOverClose();
+				process_refreshList();
+			}
         }
     });
 }

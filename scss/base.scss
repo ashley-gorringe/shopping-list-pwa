@@ -214,6 +214,8 @@ body.no-scroll{
 		line-height: 1rem;
 		font-weight: bold;
 		padding-left: 20px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 		min-width: 0;
 		max-width: 100%;
 		overflow: hidden;
@@ -263,7 +265,7 @@ body.no-scroll{
 .list-code__box{
 	display: none;
 	position: relative;
-	padding: 20px;
+	padding: 11px;
 	border-radius: $border-radius;
 	border: 2px solid darken($colour-borders,10%);
 	.heading{
@@ -277,7 +279,7 @@ body.no-scroll{
 	.list-code{
 		font-family: 'JetBrains Mono', monospace;
 		display: block;
-		font-size: 30px;
+		font-size: 24px;
 		line-height: 1em;
 		color: $colour-primary;
 		text-align: center;

@@ -23,6 +23,12 @@ $("#share-button").click(function(event){
 	process_shareList();
 });
 
+//Clean List Button
+$("#clean-button").click(function(event){
+	event.preventDefault();
+	process_cleanList();
+});
+
 //Add Item Button
 $("#add-item-button").click(function(event){
 	event.preventDefault();
