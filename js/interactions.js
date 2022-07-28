@@ -4,6 +4,11 @@ $("#close-slide-button").click(function(event){
 	slideOverClose();
 });
 
+$("#error-close-button").click(function(event){
+	event.preventDefault();
+	errorDialogClose();
+});
+
 //Create new List Button
 $("#create-list-button").click(function(event){
 	event.preventDefault();

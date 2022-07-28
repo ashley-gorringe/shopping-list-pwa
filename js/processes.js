@@ -1,5 +1,5 @@
-var apiUrl = 'https://shoppinglist-api.splycd.co.uk';
-//var apiUrl = 'http://shoppinglistapi:8888';
+//var apiUrl = 'https://shoppinglist-api.splycd.co.uk';
+var apiUrl = 'http://shoppinglistapi:8888';
 
 function process_createList(){
 	$.ajax({
@@ -26,7 +26,8 @@ function process_joinList(formData){
         success: function(response){
             console.log(response);
             if(response.status == 'error'){
-				console.error(response.message);
+				//console.error(response.message);
+				errorDialogOpen(response.message);
             }else if(response.status == 'success'){
 				console.log(response.token);
 				localStorage.setItem('token', response.token);

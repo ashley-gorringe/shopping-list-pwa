@@ -32,6 +32,20 @@ function slideOverClose(){
 	$('.slide-over').removeClass('active');
 }
 
+
+function errorDialogOpen(message){
+	$('#error-body').html(message);
+
+	$('body').addClass('no-scroll');
+	$('.overlay-error').addClass('active');
+	$('.error-dialog').addClass('active');
+}
+function errorDialogClose(){
+	$('body').removeClass('no-scroll');
+	$('.overlay-error').removeClass('active');
+	$('.error-dialog').removeClass('active');
+}
+
 if (localStorage.getItem("token") === null){//Does List ID exist
 	slideOverOpen('welcome');
 }else{

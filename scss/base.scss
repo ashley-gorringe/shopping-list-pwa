@@ -526,3 +526,97 @@ body.no-scroll{
 	left: 30px;
 	width: calc(100% - 60px);
 }
+
+.overlay-error{
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 400;
+	opacity: 0;
+	pointer-events: none;
+	transition-duration: 0.3s;
+	&.active{
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.error-dialog{
+	display: block;
+	position: fixed;
+	height: auto;
+	width: calc(100% - 30px);
+	background: white;
+	top: 50%;
+	left: 15px;
+	z-index: 500;
+	border-radius: $border-radius;
+	transform: translate(0px, -50%);
+	padding: 20px;
+	opacity: 0;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+	pointer-events: none;
+	&.active{
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.icon{
+		display: block;
+		position: absolute;
+		top: -50px;
+		left: calc(50% - 20px);
+		height: 40px;
+		background-color: white;
+		border-radius: $border-radius;
+		padding: 8px;
+		color: $colour-danger;
+		fill:$colour-danger;
+	}
+
+	.heading{
+		display: block;
+		position: relative;
+		font-size: 20px;
+		line-height: 1.2em;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+	.body{
+		display: block;
+		position: relative;
+		font-size: 16px;
+		line-height: 1.2em;
+		text-align:center;
+	}
+
+	.actions{
+		display: flex;
+		margin-top: 20px;
+		justify-content: center;
+		gap: 10px;
+		button{
+			display: block;
+			position: relative;
+			border: 2px solid darken($colour-borders, 5%);
+			background-color: darken($colour-borders, 5%);
+			padding: 10px 20px;
+			font-size: 18px;
+			line-height: 1em;
+			font-weight: normal;
+			border-radius: $border-radius;
+			text-align: center;
+			color: $colour-dark;
+
+			&:active{
+				background-color: darken($colour-borders, 10%);
+				border-color: darken($colour-borders, 15%);
+			}
+		}
+	}
+}
